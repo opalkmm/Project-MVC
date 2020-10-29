@@ -7,7 +7,7 @@ const name = process.env.DATABASE_NAME || pkg.name;
 
 const url = process.env.DATABASE_URL || `postgres://localhost:5432/${name}`;
 
-console.log(chalk.yellow(`Opening database connection to ${url}${name}`));
+console.log(chalk.yellow(`Opening database connection to ${url}`));
 
 // create the database instance
 const db = module.exports = new Sequelize(url, {
@@ -22,12 +22,27 @@ const db = module.exports = new Sequelize(url, {
 // pull in our models
 require('./models')
 
+// TODO erase this
+// const getCircularReplacer = () => {
+//   const seen = new WeakSet();
+//   return (key, value) => {
+//     if (typeof value === "object" && value !== null) {
+//       if (seen.has(value)) {
+//         return;
+//       }
+//       seen.add(value);
+//     }
+//     return value;
+//   };
+// };
+// looks like no eror in the result from db.sync
+
 // sync the db, creating it if necessary
 function sync(retries=0, maxRetries=5) {
-  return db.sync({force:false})
-    .then(ok => console.log(`Synced models to db ${url}`))
-    .catch(fail => {
-      console.log(fail)
+  return db.sync({force:true})
+    .then(result => console.log(`Synced models to db ${url}`))
+    .catch(error => {
+      console.log(error)
     })
 }
 

@@ -4,10 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 It was extended with [Create-React-App-Fullstack](https://github.com/ekatzenstein/create-react-app-fullstack)
 
-
 To get started with this app locally:
 
 You will need to install and run Postgress database server first: [Postgress.App](https://postgresapp.com/) is one way
+
+run in your terminal: 
+```createdb buddle```
 
 Run the app and make sure a database is running named 'buddle'
 
@@ -28,25 +30,38 @@ buddle=# \dt
 buddle=# 
 ```
 
-run in your terminal 
-
-```createdb buddle```
-
 Before getting started, seed the database with dummy data by running:
-
 ```npm run seed```
+
+if you get this 
+```
+Opening database connection to postgres://localhost:5432/buddlebuddle
+Synced models to db postgres://localhost:5432/buddle
+TypeError: Cannot read property 'map' of undefined
+```
+you can try to run
+```
+ » sudo npm run seed
+```
+and if you see
+```
+> buddle@0.1.0 seed /Users/Alex/Documents/OpalandAlex/Buddle
+> node db/seed.js
+
+Opening database connection to postgres://localhost:5432/buddlebuddle
+{ SequelizeConnectionError: role "root" does not exist
+```
+then try
+```
+
+```
 
 start
 After the database is seeded, you should be all set. To enable full-stack development with hot-reloading, use the same script as create-react-app:
-
 ```npm run start```
-
 build
 To build deployment-ready, we use the same script as create-react-app:
-
 ```npm run build```
-
-
 
 ## Available Scripts
 
