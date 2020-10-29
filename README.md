@@ -1,23 +1,92 @@
-# Boilerplate-Fullstack-React-Express-Sequelize-Postgres
+# Getting Started with Create React App
 
-- This is a completely configured, working, and functional boilerplate fullstack React App made available to anyone who wishes to build a React app with a backend using Node/Express, Sequelize, and Postgres.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- This repo solves the issue of create-react-app requiring its own server, which would have to contact another server for an API you build
+It was extended with [Create-React-App-Fullstack](https://github.com/ekatzenstein/create-react-app-fullstack)
 
-  - This makes create-react-app not suitable for use with a backend
-  
-  - Feel free to clone this repo to solve this issue :)
-  
-## How to use:
+To get started with this app locally:
 
-- After cloning this repo, make sure to install all the dependencies:
+You will need to install and run Postgress database server first: [Postgress.App](https://postgresapp.com/) is one way
 
-$> npm install
+run in your terminal: 
+```createdb buddle```
 
-- Now to run the app, make sure to run command in root directory to serve the application:
+Run the app and make sure a database is running named 'buddle'
 
-$> npm run start-dev
+Open the PostGres app and double click on the database 'buddle' to open a terminal access to the postgres instance. Then run the command ```\dt``` to show tables 
 
-- This will use babel and webpack to create a bundle.js file which will be sent to your client to serve the React application
+```  » /Applications/Postgres.app/Contents/Versions/13/bin/psql -p5432 "buddle"
+psql (13.0)
+Type "help" for help.
 
-- This will also use nodemon to allow for the browser to refresh after each save of a file.  
+buddle=# \dt
+         List of relations
+ Schema |   Name   | Type  | Owner 
+--------+----------+-------+-------
+ public | products | table | Alex
+ public | reviews  | table | Alex
+(2 rows)
+
+buddle=# 
+```
+
+Before getting started, seed the database with dummy data by running:
+```npm run seed```
+
+if you get this 
+```
+Opening database connection to postgres://localhost:5432/buddlebuddle
+Synced models to db postgres://localhost:5432/buddle
+TypeError: Cannot read property 'map' of undefined
+```
+you can try to run
+```
+ » sudo npm run seed
+```
+and if you see
+```
+> buddle@0.1.0 seed /Users/Alex/Documents/OpalandAlex/Buddle
+> node db/seed.js
+
+Opening database connection to postgres://localhost:5432/buddlebuddle
+{ SequelizeConnectionError: role "root" does not exist
+```
+then try
+```
+
+```
+
+start
+After the database is seeded, you should be all set. To enable full-stack development with hot-reloading, use the same script as create-react-app:
+```npm run start```
+build
+To build deployment-ready, we use the same script as create-react-app:
+```npm run build```
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
