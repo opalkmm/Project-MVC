@@ -20,11 +20,23 @@ describe("GET /api/posts", function() {
   it("should find all posts", function(done) {
     // Add some examples to the db to test with
     db.Post.bulkCreate([
-      { text: "First Example", description: "First Description" },
-      { text: "Second Example", description: "Second Description" }
+        {
+            author: "author of the first post",
+            description: "caption",
+            content: "the url",
+            created: "the posting date",
+            comments: "comments in the comment section"
+        },
+        {
+            author: "author of the second post",
+            description: "caption",
+            content: "the url",
+            created: "the posting date",
+            comments: "comments in the comment section"
+        }
     ]).then(function() {
       // Request the route that returns all examples
-      request.get("/api/examples").end(function(err, res) {
+      request.get("/api/posts").end(function(err, res) {
         var responseStatus = res.status;
         var responseBody = res.body;
 
@@ -34,16 +46,29 @@ describe("GET /api/posts", function() {
         expect(responseStatus).to.equal(200);
 
         expect(responseBody)
-          .to.be.an("array")
+        //response from bulkcreate method
+          .to.be.an("array");
           .that.has.lengthOf(2);
 
         expect(responseBody[0])
           .to.be.an("object")
-          .that.includes({ text: "First Example", description: "First Description" });
+          .that.includes({
+            author: "author of the firstpost",
+            description: "caption",
+            content: "the url",
+            created: "the posting date",
+            comments: "comments in the comment section"
+        });
 
         expect(responseBody[1])
           .to.be.an("object")
-          .that.includes({ text: "Second Example", description: "Second Description" });
+          .that.includes({ 
+            author: "author of the firstpost",
+            description: "caption",
+            content: "the url",
+            created: "the posting date",
+            comments: "comments in the comment section"
+            });
 
         // The `done` function is used to end any asynchronous tests
         done();
