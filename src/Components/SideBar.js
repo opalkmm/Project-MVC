@@ -1,14 +1,16 @@
 import React from "react";
 import {
-  Checkbox,
   Grid,
   Header,
   Icon,
   Menu,
   Segment,
   Sidebar,
+  Image,
 } from "semantic-ui-react";
 import GridExampleContainer from "./CardContainer.js";
+import logo from "../logo.svg";
+import Navbar from "./Navbar.js";
 
 const SideBarMenu = () => {
   const [visible, setVisible] = React.useState(false);
@@ -16,12 +18,21 @@ const SideBarMenu = () => {
   return (
     <Grid columns={1}>
       <Grid.Column>
-        <Checkbox
-          checked={visible}
-          label={{ children: <code>visible</code> }}
-          onChange={(e, data) => setVisible(data.checked)}
+        <Image
+          className="buddleLogoTrigger"
+          circular={true}
+          size="mini"
+          src={logo}
+          position="left"
+          floated="left"
+          hidden={false}
+          onClick={() => {
+            setVisible(!visible);
+          }}
         />
-        <Sidebar.Pushable as={Segment}>
+        <Navbar />
+
+        <Sidebar.Pushable as={Segment} className="sidebarWrapper">
           <Sidebar
             as={Menu}
             animation="overlay"
