@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  width: 100% !important;
+}
+
+.wrappedMenu {
+  margin: 0 0 0 0 !important;
+  border: 0 0 0 0 !important;
+}
+
+.sidebarWrapper {
+  margin: 0 0 0 0 !important;
+  border: 0 0 0 0 !important;
+}
+
+.buddleLogoTrigger {
+  margin: 11px 0px 0px 11px !important;
+  border: 0 0 0 0 !important;
 }
 
 .App-logo {
