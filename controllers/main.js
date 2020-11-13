@@ -2,14 +2,16 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+
+
 // the backend endpoint to hit from react app to get posts from
-router.get("/test", function(req, res) {
+router.get("/", function(req, res) {
+  
   db.Post.findAll()
-    .then(function() {
-      return res.json("NAS");
+    .then(function(data) {
+      return res.json(data);
     });
 });
-
 
 
 // // post route to create burgers
