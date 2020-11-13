@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       content: DataTypes.STRING,
       created: DataTypes.DATE,
       comments: DataTypes.STRING,
+      group: DataTypes.STRING
     });
     return Post;
   };
