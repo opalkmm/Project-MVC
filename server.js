@@ -4,13 +4,13 @@ var express = require("express");
 
 var db = require("./models");
 
-// var app = express();
+var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // Handlebars
 // app.engine(
@@ -22,8 +22,12 @@ app.use(express.static("public"));
 // app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+
+
+var routes = require("./controllers/main.js");
+
+app.use(routes);
+
 
 var syncOptions = { force: false };
 
@@ -44,4 +48,3 @@ db.sequelize.sync(syncOptions).then(function() {
   });
 });
 
-module.exports = app;
