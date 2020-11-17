@@ -1,5 +1,7 @@
 import React from "react";
 import { Grid, Card } from "semantic-ui-react";
+import CommentSection from "./Comments";
+
 // import CardExampleCardProps from "./Cards.js";
 
 // const extra = (
@@ -14,7 +16,7 @@ const dataObj = {
   description:"Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.",
   content: "https://source.unsplash.com/random",
   created: new Date(),
-  comments: "Comments go here...",
+ 
   // meta:'Friend',
   // extra={extra}
 };
@@ -41,15 +43,20 @@ const multipleObjects = [
 ];
 // TODO
 // replace multipleObjects with an array of data from the SQL call
+const commentSection = ()=>(
+  <>
+   <CommentSection/>
+  </>
+)
 
 const generateCards = (obj) => (
     <Grid.Column>
       <Card
         image={obj.content}
         header={obj.author}
-        // meta={obj.comments}
         description={obj.description}
-        extra={obj.comments}
+        extra = {commentSection()}
+       
       />
     </Grid.Column>
   );
