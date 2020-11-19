@@ -6,7 +6,7 @@ export default class CommentSection extends Component {
   state = { collapsed: true,
             activeItem: 'more' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name, collapsed: false })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name, collapsed: !this.state.collapsed })
 //   handleCheckbox = (e, { checked }) => this.setState({ collapsed: checked })
 
   render() {
@@ -18,8 +18,8 @@ export default class CommentSection extends Component {
         
         <Menu text>
         <Menu.Item
-          name='more'
-          active={(activeItem === 'more')}
+          name={collapsed ? 'more' : 'less'}
+          active={(activeItem === this.state.name)}
           onClick={this.handleItemClick}
         />
         </Menu>
