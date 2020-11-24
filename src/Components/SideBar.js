@@ -11,6 +11,7 @@ import {
 import GridExampleContainer from "./CardContainer.js";
 import logo from "../logo.svg";
 import Navbar from "./Navbar.js";
+import ContentUpload from "./Upload"
 
 const SideBarMenu = () => {
   const [visible, setVisible] = React.useState(false);
@@ -18,6 +19,7 @@ const SideBarMenu = () => {
   return (
     <Grid columns={1}>
       <Grid.Column>
+        
         <Image
           className="buddleLogoTrigger"
           circular={true}
@@ -30,7 +32,9 @@ const SideBarMenu = () => {
             setVisible(!visible);
           }}
         />
+        
         <Navbar />
+        <ContentUpload />
 
         <Sidebar.Pushable as={Segment} className="sidebarWrapper">
           <Sidebar
