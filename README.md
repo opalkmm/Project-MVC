@@ -12,7 +12,7 @@ Buddle (buddy + huddle) originated from my wish to have a group of people who sh
 
 Please see the project hosted here
 
-# Demo of the Application
+# Demo
 
 
 
