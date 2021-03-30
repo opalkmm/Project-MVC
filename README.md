@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# Buddle (buddy + huddle)
+--- 
+this project originated from my wish to have a group of people who share a niche interest to share new information, show their collection, etc. The feed allows people to see photo feed and description of people within the group, with the ability to 'like' and 'comment'. Most of the times, the group functionality of major social media is cluttered with texts and irrelevant information. This application will show only photos and the users will have more controll over what they would like to see.
+
+# Built with:
+---
+- ReactJS
+- Javascript
+- Material UI
+- HTML
+- CSS
+- test: mocha, chai
+
+Please see the project hosted here
+
+# Demo of the Application
+---
+
+
+
+
+# How to run
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
