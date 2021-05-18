@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Card } from "semantic-ui-react";
 import CommentSection from "./Comments";
-
+import axios from "axios";
 // import CardExampleCardProps from "./Cards.js";
 
 // const extra = (
@@ -10,6 +10,11 @@ import CommentSection from "./Comments";
 //     16 Friends
 //   </a>
 // )
+
+axios.get("/postCreate").then(function(data) {
+  console.log(data);
+  }
+);
 
 const dataObj = {
   author: "Elliot Baker",
